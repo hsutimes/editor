@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="assets/styles/app.css" />
+    <link rel="stylesheet" type="text/css" href="assets/styles/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="assets/styles/simditor.css" />
+    <link rel="stylesheet" type="text/css" href="assets/styles/simditor-fullscreen.css" />
+    <link rel="stylesheet" type="text/css" href="assets/styles/font-awesome.css" />
+</head>
+<body>
+<section id="page-demo" style="margin:3em">
+    <textarea id="editor" data-autosave="editor-content" autofocus></textarea>
+
+    <div id="preview" class="editor-body"></div>
+</section>
+
+<script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="assets/scripts/mobilecheck.js"></script>
+<script type="text/javascript" src="assets/scripts/module.js"></script>
+<script type="text/javascript" src="assets/scripts/uploader.js"></script>
+<script type="text/javascript" src="assets/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="assets/scripts/simditor.js"></script>
+<script type="text/javascript" src="assets/scripts/simditor-fullscreen.js"></script>
+<script type="text/javascript" src="assets/scripts/simditor-dropzone.js"></script>
+<script type="text/javascript" src="assets/scripts/marked.js"></script>
+<script type="text/javascript" src="assets/scripts/simditor-marked.js"></script>
+<script>
+    var editor = new Simditor({
+        textarea: $('#editor'),
+        placeholder: '这里输入文字...',
+        toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale','color', '|',
+            'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr',
+            '|', 'indent', 'outdent', 'alignment','marked','|','fullscreen'],
+        defaultImage: 'assets/images/image.png',
+        params: {},
+        upload: true
+        //optional options
+    });
+    
+    editor.on("valuechanged",function () {
+        $('#preview').html(editor.getValue());
+    });
+</script>
+</body>
+</html>
