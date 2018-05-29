@@ -14,7 +14,7 @@
 <section id="page-demo" style="margin:3em">
     <textarea id="editor" data-autosave="editor-content" autofocus></textarea>
 
-    <div id="preview" class="editor-body"></div>
+    <div id="preview" class="simditor-body" contenteditable="true"></div>
 </section>
 
 <script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
@@ -36,12 +36,13 @@
             '|', 'indent', 'outdent', 'alignment','marked','|','fullscreen'],
         defaultImage: 'assets/images/image.png',
         params: {},
-        upload: true
+        upload: true,
+        pasteImage:true
         //optional options
     });
     
     editor.on("valuechanged",function () {
-        $('#preview').html(editor.getValue());
+        $('#preview').html(editor.sync());
     });
 </script>
 </body>
